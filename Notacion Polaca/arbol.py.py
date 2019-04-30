@@ -3,7 +3,6 @@ class Nodo():
         self.valor = val
         self.izq = izq
         self.der = der
-
         
     def postorden(arbol):
         if arbol != None:
