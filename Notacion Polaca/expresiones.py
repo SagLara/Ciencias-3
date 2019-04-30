@@ -11,7 +11,6 @@ def notacionPI(lista,pila):
             izq = pila.desapilar()
             pila.apilar(Nodo(lista[0],izq,der))  
         return notacionPI(lista[1:],pila) 
-
 def resultado(arbol):
     if arbol.valor=="+":
         return resultado(arbol.izq) + resultado(arbol.der)
