@@ -1,0 +1,11 @@
+certificate  Persona1 {
+  "Sergio Gomez","20161020046",5
+  1,"GNUbies"
+}    
+
+certificate  Persona2 {
+  "Andres Lopez","20120120102",4
+  2,"Proyecto"
+}                           
+
+

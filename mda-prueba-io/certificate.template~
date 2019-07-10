@@ -1,0 +1,18 @@
+<div ng-controller="Editar{{certificates.name|capitalize}}Ctrl">
+  <div class="jumbotron text-center">
+  <h2>CERTIFICADO GRUPO GNU/LINUX</h2>
+  <hr>
+  <p>El grupo GLUD certifica que :</p><br>
+      <label>El estudiante con nombre: </label>
+      <label class="col-sm-2 control-label">{{certificates.persona.name|capitalize}}</label><br>
+      <label>Registrado con el codigo </label><br>
+      <label class="col-sm-2 control-label">{{certificates.persona.codigo|capitalize}}</label><br>
+      <label>Estuvo activo en:  </label><br>
+      <label class="col-sm-2 control-label">{{certificates.actividad.id}}</label><br>
+      <label>Su nota final es: </label><br>
+      <label class="col-sm-2 control-label">{{certificates.persona.nota|capitalize}}</label>
+      <p>{{certificates.actividad.id}}
+</p><br>
+    </div>
+  </div>
+</div>

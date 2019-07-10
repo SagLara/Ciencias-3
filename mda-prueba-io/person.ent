@@ -1,0 +1,14 @@
+certificate  Persona1 {
+  'Sergio Gomez','20161020046',5 ;
+  1,'GNUbies' ;
+}    
+
+certificate  Persona2 {
+  "Andres Lopez","20122025102",4 ;
+  2,"Proyecto" ;
+}                           
+
+certificate  Persona3 {
+  "Camilo Quiroga","20161020102",5 ;
+  3,"Flisol" ;
+} 

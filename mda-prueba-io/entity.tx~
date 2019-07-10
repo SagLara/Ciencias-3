@@ -1,0 +1,29 @@
+/*
+  Entity DSL grammar.
+  Entity= Certificate
+*/
+
+CertificateModel:
+    certificates+=Certificate       // Each model has one or more entities.
+;
+
+Certificate:
+    'certificate' name=ID '{'
+        persona=Persona
+        actividad+=Actividad // Each entity has one or more activities.
+    '}'
+;
+
+Persona:
+    name=STRING ',' codigo=STRING ',' nota=INT
+;
+
+Actividad:
+    id=INT ',' name=STRING
+;
+
+
+// Special rule for comments. Comments start with //
+Comment:
+    /\/\/.*$/
+;

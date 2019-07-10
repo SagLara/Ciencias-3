@@ -1,0 +1,36 @@
+public class {{certificate.name|capitalize}} {
+
+  {% for activity in certificate.activities %}
+    {% if activity is certificate %}
+      private {{activity.type.name|capitalize}} {{activity.name}};
+    {% else %}
+       private {{activity.type|javatype}} {{activity.name}};
+    {% endif %}
+  {% endfor %}
+
+  {% for activity in certificate.activities %}
+  {% if activity is certificate %}
+    public {{activity.type.name|capitalize}} get{{activity.name|capitalize}}(){
+      return this.{{activity.name}};
+    }
+  {% else %}
+    public {{activity.type}} get{{activity.name|capitalize}}(){
+      return this.{{activity.name}};
+    }
+  {% endif %}
+  {% endfor %}
+
+  {% for activity in certificate.activities %}
+    {% if activity is certificate %}
+      public void set{{activity.type.name|capitalize}}({{activity.type.name|capitalize}} value){
+        this.{{activity.name}} = value;
+      }
+    {% else %}
+      public void set{{activity.name|capitalize}}({{activity.type}} value){
+        this.{{activity.name}} = value;
+      }
+    {% endif %}
+
+  {% endfor %}
+
+}

@@ -1,0 +1,47 @@
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name nameApp.controller:Editar{{certificate.name|capitalize}}Ctrl
+ * @description
+ * # Editar{{certificate.name|capitalize}}Ctrl
+ * Controller of the nameApp
+ */
+angular.module('nameApp')
+  .controller('Editar{{certificate.name|capitalize}}Ctrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+    $scope.title = '{{certificate.name|capitalize}}';
+    $scope.message = 'Agregar {{certificate.name|capitalize}}';
+
+    {% for activity in certificate.activities %}
+      $http.get(api_path + '{{activity.name}}?limit=0')
+      .then(function(response) {
+        $scope.{{activity.name}} = response.data;
+      });
+    {% endfor %}
+
+    $scope.load = function(id){
+    $http.get(api_path + '{{certificate.name}}/'+id)
+    .then(function(response) {
+        $scope.{{certificate.name}} = response.data;
+    });
+  };
+
+    $scope.edit = function(id){
+    {% for activity in certificate.activities %}
+      if($scope.{{certificate.name}}.{{activity.name}} == null){
+        return;
+      }
+    {% endfor %}
+    var data = {
+      {% for activity in certificate.activities %}
+        {{activity.name}}: $scope.{{certificate.name}}.{{activity.name}},
+      {% endfor %}
+    };
+    $http.put(api_path + '{{certificate.name}}',data);
+    window.location.href = '#/{{certificate.name}}';
+  };
+
+  $scope.cancel = function(){
+    window.location.href = '#/{{certificate.name}}';
+  };
+  }]);

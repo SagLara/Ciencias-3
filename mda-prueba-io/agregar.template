@@ -1,0 +1,26 @@
+// template for add form view
+<div ng-controller="Agregar{{certificate.name|capitalize}}Ctrl">
+  <div class="jumbotron text-center">
+<h2>CERTIFICADO GRUPO GNU/LINUX</h2>
+<hr>
+<p>El grupo GLUD certifica que :</p>
+
+  <form name="{{certificate.name}}Form" class="form-horizontal">
+    {% for activity in certificate.activities %}
+    <div class="form-group">
+      <label for="{{activity.name}}" class="col-sm-2 control-label">{{activity.name|capitalize}}</label>
+      <div class="col-sm-10">
+        <input name="{{activity.name}}" type="text" ng-model="{{certificate.name}}.{{activity.name}}" class="form-control"/>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" ng-click="cancel()" value="Cancelar" class="btn btn-primary"/>
+        <input type="submit" ng-click="add()" value="Guardar" class="btn btn-success"/>
+      </div>
+    </div>
+  </form>
+  <pre>{{certificate.name|capitalize}} = {{ '{{' }}{{certificate.name}}{{ '}}' }} | json}}</pre>
+  </div>
+</div>
